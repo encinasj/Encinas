@@ -106,7 +106,7 @@
                         <div class="home__data">
                             <h1 class="home__title">Hi, I'am Jose Encinas</h1>
                             <h3 class="home__subtitle">Softwre Engenieer</h3>
-                            <p class="home__description">blablablablablabaalbalaba</p>
+                            <p class="home__description">Codigo, Linux y datos</p>
                             <a href="#contactme" class="button button--flex">
                                 Contact me <i class="uil uil-message button__icon"></i>
                             </a>
@@ -784,45 +784,3 @@
     <!--==================== MAIN JS ====================-->
     <script src="assets/js/main.js"></script>
 </html>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Recopila los datos del formulario
-    $name = strip_tags(trim($_POST["name"]));
-    $name = str_replace(array("\r","\n"),array(" "," "),$name);
-    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $project = strip_tags(trim($_POST["project"]));
-    $project = str_replace(array("\r","\n"),array(" "," "),$project);
-    $message = trim($_POST["message"]);
-
-    // Verifica que los campos no estén vacíos
-    if (empty($name) || empty($project) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        http_response_code(400);
-        echo "Por favor, completa el formulario e intenta de nuevo.";
-        exit;
-    }
-
-    // Configura los detalles del correo electrónico
-    $recipient = "encinasj.angel@gmail.com";
-    $subject = "Nuevo mensaje de $name sobre $project";
-    $email_content = "Nombre: $name\n";
-    $email_content .= "Email: $email\n\n";
-    $email_content .= "Mensaje:\n$message\n";
-
-    // Configura el encabezado del correo electrónico
-    $email_headers = "From: $name <$email>";
-
-    // Envía el correo electrónico
-    if (mail($recipient, $subject, $email_content, $email_headers)) {
-        http_response_code(200);
-        echo "Gracias! Tu mensaje ha sido enviado.";
-    } else {
-        http_response_code(500);
-        echo "Oops! Algo salió mal y no pudimos enviar tu mensaje.";
-    }
-
-} else {
-    http_response_code(403);
-    echo "Hubo un problema con tu envío, intenta de nuevo.";
-}
-?>
