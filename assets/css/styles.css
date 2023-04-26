@@ -400,7 +400,7 @@ img {
 }
 
 
-/*==================== WhatsApp button ====================*/
+/*==================== Coffee button ====================*/
 
 .float{
 	position:fixed;
@@ -408,17 +408,43 @@ img {
 	height:60px;
 	bottom:150px;
 	right:20px;
-	background-color:#25d366;
-	color:#FFF;
-	border-radius:50px;
 	text-align:center;
-  font-size:30px;
-	box-shadow: 2px 2px 3px #999;
+  font-size:20px;
   z-index:100;
+  color: inherit;
 }
 
 .my-float{
 	margin-top:16px;
+}
+
+/* TOOLTIP */
+.float .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgb(0, 113, 219);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 110%;
+}
+
+.float .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgb(0, 113, 219);
+}
+.float:hover .tooltiptext {
+  visibility: visible;
 }
 
 /*==================== ABOUT ====================*/
