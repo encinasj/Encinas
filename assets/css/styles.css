@@ -190,6 +190,12 @@ img {
   display: flex;
   justify-content: space-between;
 }
+
+.logo_encinas{
+  width: 96px;
+}
+
+
 .nav__logo,
 .nav__toggle{
   color: var(--title-color);
